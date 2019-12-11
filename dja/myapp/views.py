@@ -155,28 +155,28 @@ class Manage_Shop(GenericViewSet):
 #         return Response({'code':200})
 
 
-# class UserViewSet(GenericViewSet):
-#     """学生表"""
-#     queryset = models.Student.objects.all()  #数据的queryset
-#     pagination_class = Mypagination #分页类，前面章节也已经介绍
+class UserViewSet(GenericViewSet):
+    """学生表"""
+    queryset = models.Student.objects.all()  #数据的queryset
+    pagination_class = Mypagination #分页类，前面章节也已经介绍
 
-#     @action(detail=False)
-#     def get_total_page_num(self,request,*args,**kwargs):
-#         total_page=len(self.queryset)//2 if len(self.queryset)%2==0 else len(self.queryset)//2+1
-#         # print(total_page)
-#         return Response({'total_page':total_page})
+    @action(detail=False)
+    def get_total_page_num(self,request,*args,**kwargs):
+        total_page=len(self.queryset)//2 if len(self.queryset)%2==0 else len(self.queryset)//2+1
+        # print(total_page)
+        return Response({'total_page':total_page})
 
-#     @action(detail=False)
-#     def get_page_res(self,request,*args,**kwargs):  #与url中映射的方法名称相同
-#         page_res=self.paginate_queryset(queryset=self.queryset)  #分页结果
-#         res=StudentSerializer(page_res,many=True)  #序列化
-#         # print(res.data)
-#         return Response(res.data)  #返回结果
+    @action(detail=False)
+    def get_page_res(self,request,*args,**kwargs):  #与url中映射的方法名称相同
+        page_res=self.paginate_queryset(queryset=self.queryset)  #分页结果
+        res=StudentSerializer(page_res,many=True)  #序列化
+        # print(res.data)
+        return Response(res.data)  #返回结果
 
-    # @action(detail=False)
-    # def info(self,request):
-    #     stu = StudentSerializer(self.queryset,many=True)
-    #     return Response(stu.data)
+    @action(detail=False)
+    def info(self,request):
+        stu = StudentSerializer(self.queryset,many=True)
+        return Response(stu.data)
 
 
 # def get_ip(request):

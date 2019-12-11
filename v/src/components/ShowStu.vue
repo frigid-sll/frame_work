@@ -24,12 +24,12 @@ export default {
     },
     computed:{
         first_page_res:function(){
-            this.axios.get('/api/user/get_page_res/').then((res)=>{
+            this.axios.get('/api/stu/get_page_res/').then((res)=>{
                     this.stu_data=res.data
 					})
         },
         get_total_page_num:function(){
-            this.axios.get('/api/user/get_total_page_num/').then((res)=>{
+            this.axios.get('/api/stu/get_total_page_num/').then((res)=>{
                     this.total_page_num=res.data.total_page
                     // alert(this.total_page_num)
 					})
@@ -38,7 +38,7 @@ export default {
     methods:{
         page_res:function(num){
             this.page=num
-            this.url='/api/user/get_page_res/?p='+num
+            this.url='/api/stu/get_page_res/?p='+num
             this.axios.get(this.url).then((res)=>{
                     this.stu_data=res.data
 					})
