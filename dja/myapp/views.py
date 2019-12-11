@@ -142,17 +142,17 @@ class Manage_Shop(GenericViewSet):
 
         
 
-# class HelloWorldViewSet(GenericViewSet):
-#     """hello"""
-#     @action(methods=["POST"],detail=False)
-#     def world(self, request, *args, **kwargs):
-#         name=request.data.get('username')
-#         # print(name)
-#         return Response({"code": 200, "msg": "hello world!"})
+class HelloWorldViewSet(GenericViewSet):
+    """hello"""
+    @action(methods=["POST"],detail=False)
+    def world(self, request, *args, **kwargs):
+        name=request.data.get('username')
+        # print(name)
+        return Response({"code": 200, "msg": "hello world!"})
     
-#     @action(detail=False)
-#     def bye(self,request):
-#         return Response({'code':200})
+    @action(detail=False)
+    def bye(self,request):
+        return Response({'code':200})
 
 
 class UserViewSet(GenericViewSet):
